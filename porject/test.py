@@ -3,7 +3,7 @@ import numpy as np
 
 # 1. 데이터 형태 정의
 image_shape = (224, 224, 3)  # 전신 사진의 크기 (224x224, RGB 이미지)
-numeric_shape = (3,)         # 체력, 공격력, 방어력 (수치 3개)
+numeric_shape = (3,)  # 체력, 공격력, 방어력 (수치 3개)
 
 # 2. 이미지 입력 정의
 image_input = tf.keras.layers.Input(shape=image_shape)
@@ -36,12 +36,12 @@ model = tf.keras.models.Model(inputs=[image_input, numeric_input], outputs=outpu
 
 # 9. 모델 컴파일 (이진 분류를 위한 손실 함수와 옵티마이저 설정)
 model.compile(optimizer='adam',
-              loss='binary_crossentropy',
-              metrics=['accuracy'])
+ loss='binary_crossentropy',
+ metrics=['accuracy'])
 
 # 10. 가짜 데이터 생성
 X_images = np.random.random((10, 224, 224, 3))  # 10개의 가짜 이미지 데이터 (224x224 크기)
-X_numerics = np.random.random((10, 3))          # 10개의 가짜 수치형 데이터 (체력, 공격력, 방어력)
+X_numerics = np.random.random((10, 3))  # 10개의 가짜 수치형 데이터 (체력, 공격력, 방어력)
 y_labels = np.random.randint(2, size=(10, 1))   # 10개의 가짜 레이블 (0 또는 1)
 
 # 11. 모델 학습
